@@ -40,7 +40,11 @@ public class LinkService {
         return linkRepository.save(link);
     }
 
-    public String obterUrlOriginal(String urlEncurtada) {
-
+    public Link obterUrlOriginal(String urlEncurtada) {
+        try {
+            return linkRepository.findByUrlOriginal(urlEncurtada);
+        } catch (Exception erro) {
+            throw new RuntimeException("Url não existe na base", erro);
+        }
     }
 }
