@@ -63,7 +63,7 @@ public class LinkService {
      */
     public Link obterUrlOriginal(String urlEncurtada) {
         try {
-            return linkRepository.findByUrlOriginal(urlEncurtada);
+            return linkRepository.findByUrlLong(urlEncurtada);
         } catch (Exception erro) {
             throw new RuntimeException("URL não existe na base", erro);
         }
